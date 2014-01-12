@@ -1,5 +1,10 @@
 btnx ChangeLog
 
+2014-01-11        v.0.4.12.1
+	* Imported from tar-balls, ported the 0.4.12 changes for permanent
+	revoco, applied patches to fix compiler flag errors and compiler halts
+	on warnings. Tested on Fedora 18, 19, Ubuntu 12.04, 13.04, 13.10.
+
 2008-05-02        v.0.4.12
         * Changed default revoco mode to permanent from temporary. This means
         revoco changes persist (no need to restart btnx) when the mouse goes to
