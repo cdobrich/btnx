@@ -1,0 +1,115 @@
+btnx ChangeLog
+
+2008-04-30	v.0.4.11
+	* Fixes multiple process bug, caused by incorrect pid file removal.
+
+2008-04-28	v.0.4.10
+	* Fixes unhandled read exception when a button handler closes. Lead to an 
+	infinite loop. Occurred when mouse went to sleep or was unplugged.
+	Fixes bug #223397: https://bugs.launchpad.net/btnx/+bug/223397
+
+2008-04-05	v.0.4.9
+	* Fixes combination release issue. Modifiers were released before the main
+	key which caused the system to register extra main keys during release.
+	* Incorporates configuration looping: btnx tries all configuration files
+	until it detects a configured mouse. This means you can have multiple
+	configurations with different mice and btnx will start with the one
+	plugged in (good for roaming users). If many mice are plugged in, btnx
+	uses the highest priority one.
+	Fixes bug #200050: https://bugs.launchpad.net/btnx/+bug/200050
+	* Better structure for listening to multiple device handlers.
+	* Allows use of devices with only absolute x,y axis movement. Previously
+	the mouse was detected according to only relative x,y setting values. Allows
+	the use of touchpads.
+
+2008-03-12	v.0.4.8
+	* btnx requires libdaemon >= v.0.10.
+	* Daemon functionality (PID file, output and logging, signals) handled more
+	gracefully by libdaemon.
+	* Refinement of ./configure script. Arguments:
+	init_scripts_path = control init scripts path argument.
+	config_path = path where btnx configuration files are stored.
+	init_tool = set to no to disable init script registration. Otherwise,
+	autodetects update-rc.d, chkconfig, and rc-update.
+	output_syslog = set to yes to make btnx redirect output to syslog when
+	started by the init script.
+
+2008-03-06	v.0.4.7
+	* btnx has been converted to use GNU autotools. Use ./configure before
+	running make and install. See ./configure --help for additional
+	arguments.
+	* Compatible with btnx-config v. >= 0.4.7
+	* Kernel 2.6.24 input interface changes required changes to reading
+	the configuration data and reading event handlers.
+	* Reads event handlers like it should have since the beginning.
+
+2008-02-21	v.0.4.6
+	* Added some more delay after modifier key press. Too short delay caused
+	mouse button keycodes to be registered on some systems before modifier 
+	keys. Resulted in combos not working properly.
+	Fixes bug #193262: https://bugs.launchpad.net/btnx/+bug/193262
+
+2008-01-03	v.0.4.5
+	* Allows double-clicking by manually changing a button event type=1. This
+	undocumented feature was blocked by the force release property.
+
+2007-12-11	v.0.4.4
+	* Fixed "2" file creation bug in init script.
+
+2007-12-10	v.0.4.3
+	* Init script stop command uses btnx to kill all processes. Previous
+	implementation lead to race conditions between init script and btnx
+	processes to read and kill PIDs. Also lead to duplicate btnx processes.
+	Fixes bug #175088: https://bugs.launchpad.net/btnx/+bug/175088
+
+2007-12-08	v.0.4.2
+	* Fixed PID file bug. kill_pids() closed file descriptor that append_pid()
+	required to append the PID of current process. Resulted in duplicate btnx
+	processes.
+
+2007-12-05	v.0.4.1
+	* Init script fix: do_start() attempts to start btnx with full path and
+	on failure, attempts to start it with just the executable name. Necessary
+	for different implementations of start_daemon().
+	* Init script fix: log_*_msg removed, replaced with echoes
+	* Init script fix: checks for existence of event handlers before allowing
+	btnx to be started.
+	* These should fix the delay during boot that some users have experienced.
+
+2007-11-29	v.0.4.0
+	* Compatible with btnx-config 0.4.0
+	* Added support for multiple configurations.
+	* Allows switching configurations with a button event.
+	Restarts itself with the correct configuration.
+	* Locks PID file while writing and reading it during start up.
+	* Kills all previous btnx processes found in the PID file during start up.
+	* Support for "Force immediate button release" setting. Sends an immediate
+	button release signal after the button pressed signal. Buttons with this
+	option cannot be held down.
+
+2007-11-11	v.0.3.3
+	* Init bug fixes.
+	* LSB compliant init scripts.
+	* Forks to background using daemon() with command line argument -b.
+	* Log file output with command line argument -l.
+	* Appends PID to PID file.
+
+2007-10-15	v.0.3.2
+	* Integrated revoco.
+	* Command line argument support.
+
+2007-08-12	v.0.3.1
+	* Support for hotplugging.
+	* Updated Makefile (no more generic installation targets).
+	* Removed deprecated default configuration files.
+
+2007-07-06	v.0.3.0
+	* First release of the new btnx.
+	* Deprecates the v.0.2.x operation model, it is no longer maintained. No
+	more hexdumps will be accepted or added to v.0.2.x.
+	* No more automatic device detection or device hexdumps. The mouse and
+	its buttons are detected and by btnx-config. No more text file editing.
+	* Dependent btnx-config
+
+2007-07-06	v.0.2.14
+	* Final release of the old btnx branch.
