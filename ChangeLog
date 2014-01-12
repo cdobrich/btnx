@@ -1,5 +1,13 @@
 btnx ChangeLog
 
+2008-05-02        v.0.4.12
+        * Changed default revoco mode to permanent from temporary. This means
+        revoco changes persist (no need to restart btnx) when the mouse goes to
+        sleep.
+        * New ./configure option:
+        revoco_mode = revoco mode. Set to "temp" for temporary revoco mode changes.
+        Default is "permanent".
+
 2008-04-30	v.0.4.11
 	* Fixes multiple process bug, caused by incorrect pid file removal.
 
