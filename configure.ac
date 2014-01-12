@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ(2.61)
-AC_INIT(btnx, 0.4.11, oasalone@gmail.com)
+AC_INIT(btnx, 0.4.12.1, cdobrich@gmail.com)
 AC_CONFIG_AUX_DIR([config])
 AC_CONFIG_SRCDIR([src/btnx.h])
 AC_CONFIG_HEADER([config.h])
@@ -23,6 +23,7 @@ AC_ARG_VAR(init_scripts_path, The init script directory for your system. Default
 AC_ARG_VAR(config_path, The path to btnx configuration files. Default is "/etc/btnx". Do not append a final '/'.)
 AC_ARG_VAR(init_tool, Controls whether installation attempts to register the btnx init script. Set to "no" to disable. Otherwise, configure autodetects.)
 AC_ARG_VAR(output_syslog, Set to "yes" to redirect btnx output to syslog when started with init script. Default is "no".)
+AC_ARG_VAR(revoco_mode, Set to "temp" if you want temporary revoco settings. Default is permanent.)
 
 test -z "$init_scripts_path" && init_scripts_path=/etc/init.d
 test -z "$config_path" && config_path=/etc/btnx
@@ -55,6 +56,7 @@ AC_SUBST(init_add_cmd)
 AC_SUBST(init_del_cmd)
 # -----------------------------------------------------------------------
 
+# syslog output setting
 if test -z "$output_syslog" || test x$output_syslog = xno; then
 	arg_syslog=
 elif test x$output_syslog = xyes; then
@@ -63,12 +65,22 @@ else
 	AC_MSG_ERROR(Invalid value supplied for output_syslog)
 fi
 
+# revoco settings
+if test -z "$revoco_mode" || test x$revoco_mode = xpermanent; then
+	revoco_temp=0
+elif test x$revoco_mode = xtemp; then
+	revoco_temp=1
+else
+	AC_MSG_ERROR(Invalid value supplied for revoco_mode)
+fi
+
 initdir=$init_scripts_path
 configdir=$config_path
 AC_SUBST(initdir)
 AC_SUBST(configdir)
 AC_SUBST(arg_syslog)
 AC_DEFINE_UNQUOTED(CONFIG_PATH, ["$config_path"], [Path to btnx configurations])
+AC_DEFINE_UNQUOTED(REVOCO_TEMP, [$revoco_temp], [Set revoco mode to temporary])
 
 #### STILL NEED CHECKING: cat and grep ####
 # Check for su

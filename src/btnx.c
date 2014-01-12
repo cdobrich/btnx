@@ -291,7 +291,7 @@ static void main_args(int argc, char *argv[], int *bg, int *kill_all, char **con
 			/* Print version information */
 			else if (!strncmp(argv[x], "-v", 2)) {
 				printf(	PROGRAM_NAME " v." PROGRAM_VERSION "\n"
-						"Author: Olli Salonen <oasalonen@gmail.com>\n"
+						"Author: Olli Salonen <oasalonen@gmail.com>, Clifton Dobrich <cdobrich@gmail.com>\n"
 						"Compatible with btnx-config >= v.0.4.7\n");
 				exit(BTNX_EXIT_NORMAL);	
 			}
