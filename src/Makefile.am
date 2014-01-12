@@ -1,11 +1,11 @@
 ## src/Makefile.am
 
 sbin_PROGRAMS = btnx
-AM_CFLAGS = -Wall -Werror -W -Wunused-parameter -Wstrict-prototypes \
+AM_CFLAGS = -Wall -Wunused-parameter -Wstrict-prototypes \
 -Wmissing-prototypes -Wpointer-arith -Wreturn-type -Wcast-qual -Wswitch \
 -Wcast-align -Wchar-subscripts -Winline -Wnested-externs -Wredundant-decls \
 `pkg-config --cflags libdaemon`
-btnx_LDFLAGS = `pkg-config --libs libdaemon`
+btnx_LDADD = `pkg-config --libs libdaemon`
 
 btnx_SOURCES = \
 	btnx.c \
