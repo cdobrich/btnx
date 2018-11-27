@@ -42,17 +42,38 @@ To build on **Ubuntu** or **Debian**, you need the following dependencies:
 * `libglade2-dev`
 * `libgtk2.0-dev`
 
-On most Ubuntu machines, these are available without needing additional sources being enabled on your apt-package respositories. To install these dependencies, run the following command:
+On most Ubuntu machines, these are available without needing additional sources being enabled on your apt-package respositories. To install these dependencies, run the following commands on the commandline:
 
-`$ sudo apt-get install libdaemon-dev libglade2-dev libgtk2.0-dev`
+`sudo apt-get install libdaemon-dev libglade2-dev libgtk2.0-dev`
 
 To build on **Fedora** or **Redhat**, you need the following dependencies:
 
-* libdaemon-devel
-* libglade2-devel
+* `libdaemon-devel`
+* `libglade2-devel`
 
 On Fedora, you may need more if you don't have GNU-Make or the C/C++ compilers (gcc/g++) installed.
 
-To install these dependencies, run the following command:
+To install these dependencies, run the following commands on the commandline:
 
-`$ sudo dnf install libdaemon-devel libglade2-devel `
+`sudo dnf install libdaemon-devel libglade2-devel `
+
+## Compiling
+
+btnx and btnx-config follow the simple GNU-Make conventions for easy compiling, after you have the dependencies installed. Run these commands from commandline:
+
+`./configure
+make`
+
+## Installing
+
+btnx and btnx-config follow the simple GNU-Make conventions for installing, after you have successfully run the compiling step. Run this commands from commandline:
+
+`sudo make install`
+
+## Uninstalling
+
+btnx and btnx-config follow the simple GNU-Make conventions for uninstalling:
+
+`sudo make install`
+
+
