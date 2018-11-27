@@ -18,20 +18,41 @@ C
 Description
 ----
 btnx is a daemon that sniffs events from the mouse event handler.
-If it recognizes a configured event, it sends a keyboard and/or mouse
-combination event to uinput. This means you can configure certain
-mouse buttons to send keyboard and mouse events to your system with or without X.
+If it recognizes a configured event, it sends a keyboard and/or mouse combination event to uinput. This means you can configure certain mouse buttons to send keyboard and mouse events to your system with or without X.
 
-It is useful for mice with more buttons than window managers can
-handle. It also means you won't need to manually edit your window
-manager and X configurations to get additional functionality from
-extra buttons.
+It is useful for mice with more buttons than window managers can handle. It also means you won't need to manually edit your window manager and X configurations to get additional functionality from extra buttons.
 
 The configuration files for btnx are located at /etc/btnx.
-The configuration file is edited with btnx-config. You must install
-and run btnx-config before btnx will work.
 
-After changing the config file, make sure to restart btnx in btnx-config
-or by running
+The configuration file is edited with btnx-config. You must install and run btnx-config before btnx will work.
 
-$ sudo /etc/init.d/btnx restart
+After changing the config file, make sure to restart btnx in btnx-config or by running
+
+`$ sudo /etc/init.d/btnx restart`
+
+Building
+=======
+
+## Depenencies
+
+To build on **Ubuntu** or **Debian**, you need the following dependencies:
+
+* `build-essential`
+* `libdaemon-dev`
+* `libglade2-dev`
+* `libgtk2.0-dev`
+
+On most Ubuntu machines, these are available without needing additional sources being enabled on your apt-package respositories. To install these dependencies, run the following command:
+
+`$ sudo apt-get install libdaemon-dev libglade2-dev libgtk2.0-dev`
+
+To build on **Fedora** or **Redhat**, you need the following dependencies:
+
+* libdaemon-devel
+* libglade2-devel
+
+On Fedora, you may need more if you don't have GNU-Make or the C/C++ compilers (gcc/g++) installed.
+
+To install these dependencies, run the following command:
+
+`$ sudo dnf install libdaemon-devel libglade2-devel `
