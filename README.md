@@ -69,13 +69,10 @@ btnx and btnx-config follow the simple GNU-Make conventions for uninstalling:
 
 `sudo make install`
 
-Configuration
+Configuration & Service Control
 ======
-The configuration files for btnx are located at /etc/btnx.
+The configuration files for btnx are located at /etc/btnx. The configuration file itself is edited using the graphical program btnx-config. You must install and run btnx-config before btnx will work.
 
-The configuration file is edited with btnx-config. You must install and run btnx-config before btnx will work.
-
-After changing the config file, make sure to restart btnx in btnx-config or by running
+After adjusting the configuration to your liking through btnx-config, make sure to restart the btnx service, either through the "Restart btnx" button in the btnx-config GUI or by running this command on commandline:
 
 `$ sudo /etc/init.d/btnx restart`
-
