@@ -55,6 +55,7 @@ To install these dependencies, run the following commands on the commandline:
 btnx and btnx-config follow the simple GNU-Make conventions for easy compiling, after you have the dependencies installed. Run these commands from commandline:
 
 `./configure`
+
 `make`
 
 ## Installing
