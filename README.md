@@ -26,7 +26,7 @@ It is useful for mice with more buttons than window managers can handle. It also
 Building
 =======
 
-## Depenencies
+## Dependencies
 
 To build on **Ubuntu** or **Debian**, you need the following dependencies:
 
