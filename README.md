@@ -3,7 +3,7 @@ btnx
 
 btnx & [btnx-config](https://github.com/cdobrich/btnx-config) are mouse button mapper tools for mouse hardware typically from 2000s to 2015 (for newer mice support, we recommend [Piper](https://github.com/libratbag/piper)). btnx (Button Extension) is a daemon that enables rerouting of mouse button events through uinput as keyboard and other mouse button combinations. 
 
-IMPORTANT: btnx *REQUIRES* the other package [btnx-config](https://github.com/cdobrich/btnx-config), which is the graphical configuration tool for btnx. See [btnx-config](https://github.com/cdobrich/btnx-config) for more details.
+IMPORTANT: btnx *REQUIRES* the other package [btnx-config](https://github.com/cdobrich/btnx-config), which is the graphical configuration tool for btnx. See [btnx-config](https://github.com/cdobrich/btnx-config) for more details. There is no installation order. But to use, btnx should be started first, and then btnx-config should be run. 
 
 
 Modern Mice Support
