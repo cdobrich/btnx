@@ -8,9 +8,7 @@ IMPORTANT: btnx *REQUIRES* the other package [btnx-config](https://github.com/cd
 
 Modern Mice Support
 ----
-btnx works best with older mice, typically between 2005 and 2015, but possibly farther or later in time. Later generation mice, typically after 2015, are not as well supported. However there is another remapper program we strong recommend for modern mice:
-
-https://github.com/libratbag/piper
+btnx works best with older mice, typically between 2005 and 2015, but possibly farther or later in time. Later generation mice, typically after 2015, are not as well supported. However there is another remapper program we strong recommend for modern mice: [Piper](https://github.com/libratbag/piper).
 
 
 History
